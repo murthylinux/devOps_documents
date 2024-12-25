@@ -8,3 +8,32 @@ The output of a continuous delivery pipeline takes the form of a deployable bina
 
 **Continuous deployment** is an optional step up from continuous delivery. 
 It is a process that takes the output from the delivery pipeline and deploys it to the production system in a safe and automated way.
+
+
+## **Kubernetes Deployment Strategy Types:**
+
+1. Rolling Deployment
+A Rolling Deployment strategy allows for a gradual update of the application by incrementally replacing old instances with new ones. This approach ensures minimal downtime as the new instances are gradually introduced while the old ones are gracefully terminated. Rolling deployments are ideal for applications that require high availability and continuous operations.
+
+2. Recreate Deployment
+In a Recreate Deployment strategy, the existing instances are terminated first, and then the new instances are created. This approach creates a brief period of downtime as the application is unavailable during the update process. Recreate deployments are suitable for applications that can tolerate short periods of unavailability or those where downtime can be scheduled during low-traffic periods.
+
+3. Ramped Slow Rollout
+The Ramped Slow Rollout strategy gradually ramps up the new version of an application by gradually increasing the percentage of traffic it receives. This approach allows for early detection of issues and provides a controlled way to monitor the performance of the new version. Ramped slow rollouts are beneficial for applications that require careful monitoring and verification before fully rolling out the update.
+
+4. Best-Effort Controlled Rollout
+The Best-Effort Controlled Rollout strategy allows for fine-grained control over the deployment process. It enables the operator to specify the desired number or percentage of pods to be updated at a given time. This approach provides flexibility while maintaining control over the update process, making it suitable for complex applications with specific deployment requirements.
+
+5. Blue/Green Deployment
+A Blue/Green Deployment strategy involves maintaining two identical environments, one referred to as "blue" (the production environment) and the other as "green" (the new version of the application). The new version is deployed in the green environment, thoroughly tested, and then traffic is switched from the blue to the green environment. This approach allows for instant rollbacks if any issues arise, ensuring minimal impact on users.
+
+6. Canary Deployment
+Canary Deployment is a strategy where a small subset of users or traffic is directed to the new version of the application, while the majority of traffic continues to use the previous version. This approach enables the monitoring of the new version's performance and detects any potential issues before fully rolling out the update. Canary deployments are particularly useful for large-scale applications that cater to a diverse user base.
+
+7. Shadow Deployment
+In a Shadow Deployment strategy, the new version of the application is deployed alongside the existing version, but the traffic is only directed to the existing version. The purpose of this strategy is to compare the behavior and performance of the new version with the existing one without affecting the user experience. Shadow deployments are valuable in assessing the impact of updates on the overall system performance before making them available to users.
+
+8. A/B Testing
+A/B Testing involves deploying multiple versions of an application and directing different subsets of users or traffic to each version. This strategy allows for a direct comparison of the performance and user experience between different versions. A/B testing is beneficial for making data-driven decisions about which version performs better based on user feedback and metrics.
+
+The wide array of Kubernetes deployment strategies offers diverse approaches to cater to different application requirements, ensuring smooth updates and minimal downtime. Each strategy has its own merits and suitability depending on factors such as application criticality, traffic patterns, and user expectations. By choosing the appropriate strategy, organizations can achieve seamless deployment processes and deliver the best user experience.

@@ -1,5 +1,7 @@
 # **Interview Questions**
 
+## **Basic Level:**  
+
 ### **Q1. What is DevOps? explain in simple words?**
 **Answer:** 
 DevOps is the combination of cultural philosophies, practices, and tools that helps compaines/organizations deliver applications and services faster & efficitently.
@@ -267,3 +269,6 @@ A container and a virtual machine are both technologies used for application vir
 A virtual machine runs an entire operating system, which can be resource-intensive, while a container shares the host operating system and only includes the necessary libraries and dependencies to run an application, making it lighter and more efficient.
 
 Containers provide isolation between applications, while virtual machines provide complete isolation from the host operating system and other virtual machines.
+
+## **Intermediate DevOps technical level:**
+

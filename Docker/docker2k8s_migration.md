@@ -202,7 +202,9 @@ spec:
 ### **Applying the Configuration:**
 
 1. Create the namepace:
-``` kubectl apply -f namepace.yaml ```
+``` 
+kubectl apply -f namepace.yaml 
+```
 
 2. Apply the ConfigMap and Secret: 
 ```

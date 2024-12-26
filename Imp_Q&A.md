@@ -47,3 +47,18 @@ The monolithic, microservices architecture and service-oriented architecture (SO
 * The **microservices** architecture is a popular architectural style that structures applications as a group of small autonomous services modeled as per a business domain.
 
 * The **SOA** is a group of services that can communicate with each other, and this typically involves either data passing or two or more services coordinating activities.
+
+
+### ***Difference between Persistent Volume (PV) and Persistent Volume Claim (PVC)***
+**Persistent volume (PV):**
+A piece of storage in a Kubernetes cluster that's provisioned by an administrator or dynamically provisioned using Storage Classes. PVs are persistent, meaning they continue to exist even after the pods using them are destroyed. PVs can represent physical disks, file systems, or vendor-hosted storage resources. 
+
+**Persistent volume claim (PVC):**
+A request for storage by a user. PVCs are similar to vouchers that can be redeemed for storage access. PVCs specify which StorageClass the pod requires, and the master plane automatically finds a matching PV and binds the two. 
+
+#### Here are some other things to know about PVs and PVCs:
+* **StorageClass:** Administrators can define StorageClasses that indicate properties of storage devices, such as performance, service levels, and back-end policies. 
+* **Dynamic provisioning:** You can define a storage class to leverage dynamic provisioning of persistent volumes so you won't have to create them manually. 
+* **Data retention:** PVs ensure data retention regardless of a Pod's lifecycle. 
+* **Storage management:** PVCs simplify storage management for developers. 
+* **Stateful applications:** PVs are suitable for database storage where the database is not part of a stateful application

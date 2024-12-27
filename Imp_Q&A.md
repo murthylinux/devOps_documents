@@ -1,4 +1,15 @@
+# **Single Points:**
+
+## AWS:
+   --
+*  ELB is responsible for directing traffic to the instances, while Auto scaling is responsible for adjusting the number of instances to handle that traffic.
+
+
+
+## Jenkins:
+   --------
 ### **What’s the difference between continuous integration, continuous delivery, and continuous deployment?**
+
 
 * ***Continuous integration (CI)*** executes the sequence of steps required to build and test the project. 
 CI runs automatically on every change committed to a shared repository, offering developers quick feedback about the project’s state.
@@ -9,6 +20,16 @@ The output of a continuous delivery pipeline takes the form of a deployable bina
 * ***Continuous deployment*** is an optional step up from continuous delivery. 
 It is a process that takes the output from the delivery pipeline and deploys it to the production system in a safe and automated way.
 
+
+
+## Kubernetes:
+   -----------
+
+* ***Containers:*** A standalone unit that runs a single application and its depnedencies in an isolated environment. Containers are created and destroyed on demand, and they gnerally don't have resources directly. 
+
+* ***Pods:*** A group of one or move containers that share storage and network resources, and have a specification for how to run the containres. Pods are the smallest deployable units in kubernetes. 
+
+* ***Deployments:*** The mechanism for delivering applications, updates, and patches form developers to users. Deployments are essential components of kubernetes, along with pods, for managing and scaling applications. 
 
 ## **Kubernetes Deployment Strategy Types:**
 

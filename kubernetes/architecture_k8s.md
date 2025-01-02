@@ -73,7 +73,7 @@ Distributed: etcd is designed to run on multiple nodes as a cluster without sacr
 Key Value Store: A nonrelational database that stores data as keys and values. It also exposes a key-value API. The datastore is built on top of BboltDB which is a fork of BoltDB.
 etcd uses raft consensus algorithm for strong consistency and availability. It works in a leader-member fashion for high availability and to withstand node failures.
 
-So how does etcd work with Kubernetes?
+#### So how does etcd work with Kubernetes?
 
 To put it simply, when you use kubectl to get kubernetes object details, you are getting it from etcd. Also, when you deploy an object like a pod, an entry gets created in etcd.
 
@@ -89,10 +89,11 @@ etcd stores all objects under the /registry directory key in key-value format. F
 Also, etcd it is the only Statefulset component in the control plane.
 
 The number of nodes in an etcd cluster directly affects its fault tolerance. Here’s how it breaks down:
-
+```
 3 nodes: Can tolerate 1 node failure (quorum = 2)
 5 nodes: Can tolerate 2 node failures (quorum = 3)
 7 nodes: Can tolerate 3 node failures (quorum = 4)
+```
 And so on. The general formula for the number of node failures a cluster can tolerate is:
 
 ```
@@ -110,7 +111,7 @@ When you deploy a pod, you specify the pod requirements such as CPU, memory, aff
 
 In a Kubernetes cluster, there will be more than one worker node. So how does the scheduler select the node out of all worker nodes?
 
-Here is how the scheduler works.
+#### Here is how the scheduler works.
 
 To choose the best node, the Kube-scheduler uses filtering and scoring operations.
 In filtering, the scheduler finds the best-suited nodes where the pod can be scheduled. For example, if there are five worker nodes with resource availability to run the pod, it selects all five nodes. If there are no nodes, then the pod is unschedulable and moved to the scheduling queue. If It is a large cluster, let’s say 100 worker nodes, and the scheduler doesn’t iterate over all the nodes. There is a scheduler configuration parameter called percentageOfNodesToScore. The default value is typically 50%. So it tries to iterate over 50% of nodes in a round-robin fashion. If the worker nodes are spread across multiple zones, then the scheduler iterates over nodes in different zones. For very large clusters the default percentageOfNodesToScore is 5%.
@@ -140,7 +141,7 @@ Following are the three main controllers that are part of the cloud controller m
 * **Route controller:** It is responsible for configuring networking routes on a cloud platform. So that pods in different nodes can talk to each other.
 * **Service controller:** It takes care of deploying load balancers for kubernetes services, assigning IP addresses, etc.
 
-Following are some of the classic examples of cloud controller manager.
+#### Following are some of the classic examples of cloud controller manager.
 
 Deploying Kubernetes Service of type Load balancer. Here Kubernetes provisions a Cloud-specific Loadbalancer and integrates with Kubernetes Service.
 Provisioning storage volumes (PV) for pods backed by cloud storage solutions.
@@ -150,7 +151,7 @@ Provisioning storage volumes (PV) for pods backed by cloud storage solutions.
 
 Till now we have learned about the core kubernetes components and how each component works.
 
-All these components work towards managing the following key Kubernetes objects.
+#### All these components work towards managing the following key Kubernetes objects.
 
 1. Pod
 2. Namespaces
@@ -161,7 +162,7 @@ All these components work towards managing the following key Kubernetes objects.
 7. Jobs & Cronjobs
 8. ConfigMaps and Secrets
 
-When it comes to networking, the following Kubernetes objects plays a key role.
+#### When it comes to networking, the following Kubernetes objects plays a key role.
 
 * Services
 * Ingress
@@ -170,18 +171,23 @@ When it comes to networking, the following Kubernetes objects plays a key role.
 
 ## Kubernetes Architecture FAQs:
 **What is the main purpose of the Kubernetes control plane?**
+
 The control plane is responsible for maintaining the desired state of the cluster and the applications running on it. It consists of components such as the API server, etcd, Scheduler, and controller manager.
 
 **What is the purpose of the worker nodes in a Kubernetes cluster?**
+
 Worker nodes are the servers (either bare-metal or virtual) that run the container in the cluster. They are managed by the control plane and receive instructions from it on how to run the containers that are part of pods.
 
 **How is communication between the control plane and worker nodes secured in Kubernetes?**
+
 Communication between the control plane and worker nodes is secured using PKI certificates and communication between different components happens over TLS. This way, only trusted components can communicate with each other.
 
 **What is the purpose of the etcd key-value store in Kubernetes?**
+
 Etcd primarily stores the kubernetes objects, cluster information, node information, and configuration data of the cluster, such as the desired state of the applications running on the cluster.
 
 **What happens to Kubernetes applications if the etcd goes down?**
+
 While the running applications will not be affected if etcd experiences an outage, it will not be possible to create or update any objects without a functioning etcd.
 
 ```

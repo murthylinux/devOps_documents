@@ -54,82 +54,116 @@ Docker volume will be stored on the host machine in the directory “/var/lib/do
 
 **Instruction Description:**
 ```
-ADD			Add local or remote files and directories.
+ADD 			Add local or remote files and directories.
 
-ARG			Use build-time variables.
+ARG	    		Use build-time variables.
 
-CMD			Specify default commands.
+CMD		    	Specify default commands.
 
 COPY			Copy files and directories.
 
-ENTRYPOINT	Specify default executable.
+ENTRYPOINT	    Specify default executable.
 
-ENV			Set environment variables.
+ENV			    Set environment variables.
 
-EXPOSE		Describe which ports your application is listening on.
+EXPOSE		    Describe which ports your application is listening on.
 
 FROM			Create a new build stage from a base image.
 
-HEALTHCHECK	Check a container's health on startup.
+HEALTHCHECK	    Check a container's health on startup.
 
-LABEL		Add metadata to an image.
+LABEL		    Add metadata to an image.
 
-MAINTAINER	Specify the author of an image.
+MAINTAINER	    Specify the author of an image.
 
-ONBUILD		Specify instructions for when the image is used in a build.
+ONBUILD		    Specify instructions for when the image is used in a build.
 
-RUN			Execute build commands.
+RUN			    Execute build commands.
 
-SHELL		Set the default shell of an image.
+SHELL		    Set the default shell of an image.
 
-STOPSIGNAL	Specify the system call signal for exiting a container.
+STOPSIGNAL	    Specify the system call signal for exiting a container.
 
 USER			Set user and group ID.
 
-VOLUME		Create volume mounts.
+VOLUME		    Create volume mounts.
 
-WORKDIR		Change working directory.
+WORKDIR		    Change working directory.
 
 ```
-### Docker commads;
+### Docker commands;
 ```
-docker save -o  <output_file_name>.tar 	<image_name>     ( Image as an Archieve)
+* docker save -o  <output_file_name>.tar 	<image_name>     ( Image as an Archieve)
 			
-docker load -i  <input_file_name>.tar 				     ( Import the image)
+* docker load -i  <input_file_name>.tar 				     ( Import the image)
 
-**start command** docker start < container_name> 
+* docker run –restart		                                 (  restart image )				               
 
-**stop  command** docker stop < container_name> 
+* docker rm <container_name>                                 (  remove image )	
 
-**kill  command** docker kill < container_name> 
-
-# docker run –restart		     (  restart image )				               
-
-# docker rm <container_name>     (  remove image )	
-
-#  docker inspect <image_name>  ( inspect image with details )
+* docker inspect <image_name>                                ( inspect image with details )
 ```  
 
-#### Docker commands: 
-
-docker ps -a
-
-docker ps -a status=exited
-
-docker rm $(docker ps -qa -f status=exited -q)
+### Docker commands: 
 
 
-Remove all containers:
+#### Remove all containers:
+```
+* docker ps -a
 
-# docker ps -a
+* docker system prune
 
-# docker stop $(docker ps -a -q)
+* docker system prune -a
 
-# docker rm $(docker ps -a -q) 
+* docker images -a
 
+* docker rmi <Image> <Image>
+
+* docker images -f dangling=true
+
+* docker image prune
+
+* docker images -a | grep "pattern"
+
+* docker images -a | grep "pattern" | awk '{print $1":$2}' | xargs docker rmi
+
+# remove all containers:
+------------------------
+
+* docker stop $(docker ps -a -q)
+
+* docker rm $(docker ps -a -q)
+
+* docker rmi $(docker images -a -q)
+
+* docker rm -f &(docker ps -a -q)
+
+* docker run --rm image_name
+
+* docker ps -a -f status=exited
+
+* docker rm $(docker ps -a -f status=exited -q)
+
+* docker ps -a -f status=exited -f status=created
+
+* docker rm $(docker ps -a -f status=exited -f status=created -q) 
+
+# remove containers according to a pattern:
+
+list:
+* docker ps -a | grep "pattern"
+
+Remove:
+* docker ps -a | grep "pattern" | awk '{print $1}' | xargs docker rm
+
+# Remove unused docker Images:
+* docker image prune --all
+
+* docker system prune --all --volumes
+```
 ********************************************************************************
 
-### Q: Name the Essential Docker Commands: 
+###  Name the Essential Docker Commands: 
 ```
 $ docker version:
 

@@ -1,6 +1,6 @@
 # Architecutre of Kubernetes: 
 
-![architecture](image.png)
+![alt text](architecture.png)
 
 
 A Kubernetes cluster consists of control plane nodes and worker nodes.

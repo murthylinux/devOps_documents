@@ -1,5 +1,4 @@
 # Basic DevOps Interview Question & Answers:
---------------------------------------------
 
 1. *What is DevOps?*
    - *Answer:* DevOps is a set of practices that combines software development (Dev) and IT operations (Ops). It aims to shorten the development lifecycle and provide continuous delivery with high software quality.
@@ -68,12 +67,15 @@ Microservices are an architectural style in software development where an applic
 20. *What is blue-green deployment?*
     - *Answer:* Blue-green deployment is a strategy that reduces downtime and risk by running two identical production environments. One environment (blue) is live while the other (green) is idle. Updates are deployed to the green environment and, after testing, traffic is switched to it.
 
-### Scenario-Based Questions
+### Scenario-Based Questions:
+
 21. *Describe a scenario where you would use canary deployment.*
     - *Answer:* Canary deployment is used when you want to deploy new features to a small subset of users to minimize the impact of potential issues. If the new features work as expected, the deployment is gradually expanded to the entire user base.
 
 22. *How would you implement rolling updates in Kubernetes?*
-    - *Answer:* Rolling updates in Kubernetes can be implemented using the kubectl set image command to update the deployment's container image, which Kubernetes then gradually updates while maintaining application availability.
+    - *Answer1:* Rolling updates in Kubernetes can be implemented using the kubectl set image command to update the deployment's container image, which Kubernetes then gradually updates while maintaining application availability.
+
+    - *Answer2:* Rolling Deployment strategy allows for a gradual update of the application by incrementally replacing old instances with new ones. This approach ensures minimal downtime as the new instances are gradually introduced while the old ones are gracefully terminated. Rolling deployments are ideal for applications that require high availability and continuous operations.
 
 23. *How do you handle a situation where a build fails in Jenkins?*
     - *Answer:* Handling a failed build involves reviewing build logs, identifying and fixing code errors, checking dependencies, validating configurations, and re-running the build.
@@ -85,6 +87,7 @@ Microservices are an architectural style in software development where an applic
     - *Answer:* Ensuring high availability involves using load balancers, deploying across multiple regions or availability zones, implementing auto-scaling, setting up failover mechanisms, and monitoring system health.
 
 ### Conceptual Questions
+
 26. *What is the DevOps lifecycle?*
     - *Answer:* The DevOps lifecycle includes stages like planning, coding, building, testing, releasing, deploying, operating, and monitoring. Each stage involves continuous feedback loops to improve software delivery.
 
@@ -129,7 +132,5 @@ Microservices are an architectural style in software development where an applic
 39. *What is the role of load testing in DevOps?*
     - *Answer:* Load testing ensures that applications can handle expected and peak loads, identifying performance issues and bottlenecks before deployment to production.
 
-40. **
-
-How do you ensure reliability and security in your DevOps processes?**
+40. *How do you ensure reliability and security in your DevOps processes?*
     - *Answer:* Ensuring reliability and security involves implementing automated testing, using secure coding practices, managing secrets securely, conducting regular audits, and continuously monitoring systems

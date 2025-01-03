@@ -4,7 +4,9 @@
 | :---          |    :---:       |        :---:         |                                              ---: |
 
 |     7         |     Echo	     |       TCP, UDP	    |                    Echo service                   |
+
 |     20 	    |    FTP-data	 |       TCP, SCTP	    |       File Transfer Protocol data transfer        |
+
 |     21        |	   FTP	     |   TCP, UDP, SCTP     |	File Transfer Protocol (FTP) control connection |
 
 

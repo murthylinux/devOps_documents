@@ -119,7 +119,7 @@ In the scoring phase, the scheduler ranks the nodes by assigning a score to the 
 Once the node is selected, the scheduler creates a binding event in the API server. Meaning an event to bind a pod and node.
 
 
-![alt text](image-1.png)
+![alt text](flowchart.png)
 
 
 Following is the list of important built-in Kubernetes controllers.

@@ -19,7 +19,7 @@ Docker compose is a tool for defining and running Docker containers by reading c
 * ***ENTRYPOINT*** Default parameters that cannot be overidden when Docker Containers run with CLI parameters.
 
 
-* ***Difference between CMD and ENTRYPOINT?***
+### Difference between CMD and ENTRYPOINT?
 
 **CMD:** The default parameters that can be overridden when running a container. CMD commands are ignored if parameters are stated in the docker run command.
 

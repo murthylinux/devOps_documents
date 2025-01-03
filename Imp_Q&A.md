@@ -83,3 +83,12 @@ A request for storage by a user. PVCs are similar to vouchers that can be redeem
 * **Data retention:** PVs ensure data retention regardless of a Pod's lifecycle. 
 * **Storage management:** PVCs simplify storage management for developers. 
 * **Stateful applications:** PVs are suitable for database storage where the database is not part of a stateful application
+
+#### Difference between Replication Controller Vs Replicaset: 
+
+**Replication Controller:**
+A Replication Controller is one of the older controllers in Kubernetes and is responsible for maintaining a specified number of replicas for a pod. It uses the replicas field to define the desired number of identical pod replicas.
+
+
+**ReplicaSet:**
+A ReplicaSet is an evolution of the Replication Controller with additional features. It allows more expressive pod selectors using the matchExpressions field, enabling set-based label selection.

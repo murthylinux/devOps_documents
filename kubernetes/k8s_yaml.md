@@ -1,5 +1,8 @@
 
 ## Simple Deployment yaml file: 
+
+![alt text](image-2.png)
+
 ```
 apiVersion: apps/v1
 kind: Deployment

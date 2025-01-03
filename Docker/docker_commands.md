@@ -102,6 +102,10 @@ WORKDIR		    Change working directory.
 * docker rm <container_name>                                 (  remove image )	
 
 * docker inspect <image_name>                                ( inspect image with details )
+
+* docker rmi `docker image ls | egrep "^mailcow/" | awk '{print $3}'`
+
+* docker rmi `docker image ls | egrep "^mailcow/" | awk "{print $1" }
 ```  
 
 ### Docker commands: 
@@ -201,16 +205,16 @@ $ docker volume
 
 $ docker logout
 
-$ docker build:        This command will buld the docker image using Dockerfile 	
+$ docker build         This command will buld the docker image using Dockerfile 	
  
-$ docker run:	       This command is used to run the docker iamges as a container 
+$ docker run	       This command is used to run the docker iamges as a container 
 
-$ docker ps:           This command will list the running containers in the docker
+$ docker ps            This command will list the running containers in the docker
 
-$ docker exec:         Its helps to execute the commands in running container 
+$ docker exec          Its helps to execute the commands in running container 
 
-$ docker stop:	       Running container will be stop using this command. 
+$ docker stop	       Running container will be stop using this command. 
 
-$ docker system prune:  removel of unused data on inclusion of stopped containers. 
+$ docker system prune  removel of unused data on inclusion of stopped containers. 
 ```
 

@@ -5,9 +5,9 @@
 | `7` | Echo | TCP, UDP	| Echo service |
 | 20 | FTP-data | TCP, SCTP | File Transfer Protocol data transfer |
 | 21 | FTP	| TCP, UDP, SCTP | File Transfer Protocol (FTP) control connection |
-
 | 22 | SSH-SCP | TCP, UDP, SCTP | Secure Shell, secure logins, file transfers (scp, sftp), and port forwarding |
 | 23 | Telnet |	TCP | Telnet protocol—unencrypted text communications |
+
 25	SMTP	TCP	 Simple Mail Transfer Protocol, used for email routing between mail servers
 53	DNS	TCP, UDP	 Domain Name System name resolver
 69	TFTP	UDP	Trivial File Transfer Protocol

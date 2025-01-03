@@ -4,7 +4,13 @@
    --
 *  ELB is responsible for directing traffic to the instances, while Auto scaling is responsible for adjusting the number of instances to handle that traffic.
 
+## Git: 
 
+**Explain the difference between Git merge and Git rebase.**
+Git merge combines changes from different branches, while Git rebase integrates changes by moving or combining a sequence of commits.
+
+**Explain the difference between Git pull and Git fetch.**
+A: git pull fetches changes from a remote repository and merges them into the current branch, while git fetch only fetches changes but does not automatically merge them
 
 ## Jenkins:
    --------
